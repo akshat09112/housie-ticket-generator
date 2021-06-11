@@ -1,6 +1,44 @@
 $(document).ready(function(){
+        var families=["Amit","Anju","Neelu","Sunita","Chitra","Reena","Nonu"];
+        result();
+        $("#card").html("click to go to "+families[1]+"'s tickets");
+        $("#names").html(families[0]);
+        var i=0;
+        $("#name0").html((154+10*i));
+        $("#name1").html((155+10*i));
+        $("#name2").html((156+10*i));
+        $("#name3").html((157+10*i));
+        $("#name4").html((158+10*i));
+        $("#name5").html((159+10*i));
+        i++;
+        $('#card').click(function(){
+            clear();
+            result();
+            $("#card").html("click to go to "+families[(i+1)%7]+"'s tickets");
+            $("#names").html(families[i%7]);
+            $("#name0").html((154+10*(i%7)));
+            $("#name1").html((155+10*(i%7)));
+            $("#name2").html((156+10*(i%7)));
+            $("#name3").html((157+10*(i%7)));
+            $("#name4").html((158+10*(i%7)));
+            $("#name5").html((159+10*(i%7)));
+            i++;
+        });
+});
+function clear(){
     
-        var set1=new Set([1,2,3,4,5,6,7,8,9]);
+    for(var i=1;i<=6;i++)
+    {
+        for(var j=1;j<=9;j++)
+        {
+            $("#table"+(i)).find("#cell1"+j).html("");
+            $("#table"+(i)).find("#cell2"+j).html("");
+            $("#table"+(i)).find("#cell3"+j).html("");
+        }
+    }
+}
+function result(){
+    var set1=new Set([1,2,3,4,5,6,7,8,9]);
         
         var set2=new Set([10,11,12,13,14,15,16,17,18,19]);
         var set3=new Set([20,21,22,23,24,25,26,27,28,29]);
@@ -1225,5 +1263,5 @@ $(document).ready(function(){
         }
 
     }
-});
+}
 
